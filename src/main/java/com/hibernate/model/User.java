@@ -15,7 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class User {
-
+	
 	@Id
 	private int id;
 	private String name;

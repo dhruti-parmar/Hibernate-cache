@@ -27,8 +27,10 @@ public class App
     	SessionFactory sf = cfg.buildSessionFactory();
     	Session session1 = sf.openSession();
     	session1.beginTransaction();
+    	
     	Query q1 = session1.createQuery("from User where id=101");
     	q1.setCacheable(true);
+    	
     	User user1 = (User) q1.uniqueResult();
     	System.out.println(user1);
 
@@ -37,10 +39,11 @@ public class App
 
     	Session session2 = sf.openSession();
     	session2.beginTransaction();
+    	
     	Query q2 = session2.createQuery("from User where id=101");
     	q2.setCacheable(true);
+    	
     	User user2 = (User) q2.uniqueResult();
-
     	System.out.println(user2);
     	session2.getTransaction().commit();
     	session2.close();
